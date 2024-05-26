@@ -1,8 +1,10 @@
 package org.romanzhula.spring_graphql_example.controllers;
 
+import org.romanzhula.spring_graphql_example.dto.CustomerInput;
 import org.romanzhula.spring_graphql_example.models.Customer;
 import org.romanzhula.spring_graphql_example.repositories.CustomerRepository;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
@@ -33,4 +35,15 @@ public class CustomerController {
     ) {
         return this.customerRepository.findCustomerByEmail(email);
     }
+
+    @MutationMapping
+    public Customer addCustomer(
+            @Argument(name = "input") CustomerInput customerInput
+    ) {
+        if (customerRepository.existsByEmail(customerInput.getEmail())) {
+            throw new IllegalArgumentException("Customer with email " + customerInput.getEmail() + " already exists");
+        }
+        return this.customerRepository.save(customerInput.getCustomerEntity());
+    }
+
 }
