@@ -48,6 +48,20 @@ type Product {
     status: String!
 }
 
+type Order {
+    id: ID!
+    customer: Customer
+    seller: Seller
+    orderLines: [OrderLine]!
+}
+
+type OrderLine {
+    id: ID!
+    order: Order
+    product: Product
+    quantity: Int
+}
+
 type Mutation {
     addCustomer(input: CustomerInput): Customer
 }
