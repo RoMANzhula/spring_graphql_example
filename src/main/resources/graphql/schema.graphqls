@@ -39,6 +39,15 @@ type Seller {
     zipCode: String!
 }
 
+type Product {
+    id: ID!
+    name: String!
+    size: Int!
+    variety: String!
+    price: Float!
+    status: String!
+}
+
 type Mutation {
     addCustomer(input: CustomerInput): Customer
 }
