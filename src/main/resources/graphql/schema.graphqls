@@ -27,6 +27,18 @@ type Query {
     customerByEmail(email: String): Customer
 }
 
+type Seller {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    phoneNumber: String!
+    address: String!
+    city: String!
+    state: String!
+    zipCode: String!
+}
+
 type Mutation {
     addCustomer(input: CustomerInput): Customer
 }
