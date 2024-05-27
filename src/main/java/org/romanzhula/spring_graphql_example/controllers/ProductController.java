@@ -22,7 +22,7 @@ public class ProductController {
 
     @QueryMapping
     public Product productById(
-        @Argument Long id
+        @Argument String id
     ) {
         return this.productRepository.findById(id).orElseThrow();
     }
