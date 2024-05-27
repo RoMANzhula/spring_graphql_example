@@ -13,13 +13,16 @@ public class Product {
 
     @Id
     @Column(name = "PRODUCT_ID")
-    private Long id;
+    private String id;
 
     @Column(name = "NAME")
     private String name;
 
     @Column(name = "SIZE")
     private int size;
+
+    @Column(name="VARIETY")
+    private String variety;
 
     @Column(name = "PRICE")
     private BigDecimal price;
@@ -28,11 +31,11 @@ public class Product {
     private String status;
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -50,6 +53,14 @@ public class Product {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public String getVariety() {
+        return variety;
+    }
+
+    public void setVariety(String variety) {
+        this.variety = variety;
     }
 
     public BigDecimal getPrice() {

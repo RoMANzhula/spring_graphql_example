@@ -25,6 +25,13 @@ type Query {
     customers: [Customer]!
     customerById(id: ID): Customer
     customerByEmail(email: String): Customer
+    sellerById(id: ID): Seller
+    sellerByEmail(email: String): Seller
+    products: [Product]!
+    productById(id: ID): Product
+    orders: [Order]!
+    orderById(id: ID): Order
+    sellers: [Seller]!
 }
 
 type Seller {
