@@ -2,6 +2,8 @@ package org.romanzhula.spring_graphql_example.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "ORDERS")
 public class Order {
